@@ -1,0 +1,19 @@
+ops1 = ["5","2","C","D","+"]
+ops2 = ["5","-2","4","C","D","9","+","+"]
+
+def callPoints(operations: list[str]) -> int:
+    stk = []
+
+    for op in operations:
+        if op == '+':
+            stk.append(stk[-1] + stk[-2])
+        elif op == 'D':
+            stk.append(stk[-1] * 2)
+        elif op == 'C':
+            stk.pop()
+        else:
+            stk.append(int(op))
+    return sum(stk)
+
+print(callPoints(ops1))
+print(callPoints(ops2))
