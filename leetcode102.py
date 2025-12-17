@@ -24,11 +24,10 @@ class Solution:
             for _ in range(n):
                 node = queue.popleft()
                 levels.append(node.val)
-
                 if node.left: queue.append(node.left)
                 if node.right: queue.append(node.right)
-
             ans.append(levels)
+
         return ans
 
 node11 = TreeNode(15)    
@@ -51,3 +50,4 @@ print("Level Order: ",traverse_result2)
 
 traverse_result3 = sol.levelOrder(root3)
 print("Level Order: ",traverse_result3)
+
