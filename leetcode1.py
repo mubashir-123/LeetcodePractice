@@ -20,3 +20,4 @@ def twoSum(nums: list[int], target: list[int]):
            return [i,h[y]]
         
 print(twoSum(nums1,target1))
+

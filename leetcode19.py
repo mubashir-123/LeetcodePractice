@@ -28,20 +28,36 @@ def print_list(head):
 
 class Solution:
     # Time: O(n) Space O(1)
-    def removeNthFromNode(self,head: Optional[ListNode],n: int) -> Optional[ListNode]:
+    # def removeNthFromNode(self,head: Optional[ListNode],n: int) -> Optional[ListNode]:
+    #     dummy = ListNode()
+    #     dummy.next = head
+    #     behind = ahead = dummy
+
+    #     for _ in range(n + 1):
+    #         ahead = ahead.next
+        
+    #     while ahead:
+    #         behind = behind.next
+    #         ahead = ahead.next
+        
+    #     behind.next = behind.next.next
+    #     return dummy.next
+    
+     def removeNthFromNode(self,head: Optional[ListNode],n: int) -> Optional[ListNode]:
         dummy = ListNode()
         dummy.next = head
         behind = ahead = dummy
 
         for _ in range(n + 1):
             ahead = ahead.next
-        
+            
         while ahead:
             behind = behind.next
             ahead = ahead.next
-        
+
         behind.next = behind.next.next
-        return dummy.next
+        return dummy.next 
+
 
 list1 = build_linked_list([1,2,3,4,5])
 list2 = build_linked_list([1])
