@@ -1,10 +1,42 @@
 class Solution:
     # Time O(n!) Space O(n)
     def permute(self,nums: list[int]) -> list[list[int]]:
+        # n = len(nums)
+        # ans, sol = [], []
+
+        # def backtrack():
+        #     if len(sol) == n:
+        #         ans.append(sol[:])
+        #         return
+            
+        #     for x in nums:
+        #         if x not in sol:
+        #             sol.append(x)
+        #             backtrack()
+        #             sol.pop()
+        # backtrack()
+        # return ans
+
+        # n = len(nums)
+        # ans, sol = [], []
+
+        # def backTrack():
+        #     if len(sol) == n:
+        #         ans.append(sol[:])
+        #         return
+
+        #     for x in nums:
+        #         if x not in sol:
+        #             sol.append(x)
+        #             backTrack()
+        #             sol.pop()
+        # backTrack()
+        # return ans
+
         n = len(nums)
         ans, sol = [], []
 
-        def backtrack():
+        def backTrack():
             if len(sol) == n:
                 ans.append(sol[:])
                 return
@@ -12,11 +44,11 @@ class Solution:
             for x in nums:
                 if x not in sol:
                     sol.append(x)
-                    backtrack()
+                    backTrack()
                     sol.pop()
-        backtrack()
+        backTrack()
         return ans
-
+    
 nums1 = [1,2,3]
 nums2 = [0,1]
 nums3 = [1]

@@ -10,12 +10,33 @@ class TreeNode:
 class Solution:
     # Time O(n) Space O(n)
     def levelOrder(self,root: Optional[TreeNode]) -> list[list[int]]:
+        # if not root:
+        #     return []
+        
+        # queue = deque()
+        # queue.append(root)
+        # ans = []
+
+        # while queue:
+        #     levels = []
+        #     n = len(queue)
+
+        #     for _ in range(n):
+        #         node = queue.popleft()
+        #         levels.append(node.val)
+        #         if node.left: queue.append(node.left)
+        #         if node.right: queue.append(node.right)
+        #     ans.append(levels)
+
+        # return ans
+
         if not root:
             return []
         
+        ans = []
+
         queue = deque()
         queue.append(root)
-        ans = []
 
         while queue:
             levels = []
@@ -24,10 +45,11 @@ class Solution:
             for _ in range(n):
                 node = queue.popleft()
                 levels.append(node.val)
+           
                 if node.left: queue.append(node.left)
                 if node.right: queue.append(node.right)
-            ans.append(levels)
 
+            ans.append(levels)
         return ans
 
 node11 = TreeNode(15)    

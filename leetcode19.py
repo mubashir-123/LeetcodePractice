@@ -1,5 +1,4 @@
 from typing import Optional
-import math 
 
 class ListNode:
     def __init__(self,val = 0,next = None):
@@ -44,19 +43,34 @@ class Solution:
     #     return dummy.next
     
      def removeNthFromNode(self,head: Optional[ListNode],n: int) -> Optional[ListNode]:
+        # dummy = ListNode()
+        # dummy.next = head
+        # behind = ahead = dummy
+
+        # for _ in range(n + 1):
+        #     ahead = ahead.next
+            
+        # while ahead:
+        #     behind = behind.next
+        #     ahead = ahead.next
+
+        # behind.next = behind.next.next
+        # return dummy.next 
+
         dummy = ListNode()
         dummy.next = head
         behind = ahead = dummy
 
         for _ in range(n + 1):
             ahead = ahead.next
-            
+        
         while ahead:
             behind = behind.next
             ahead = ahead.next
-
+        
         behind.next = behind.next.next
-        return dummy.next 
+    
+        return dummy.next
 
 
 list1 = build_linked_list([1,2,3,4,5])

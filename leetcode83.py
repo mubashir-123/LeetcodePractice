@@ -28,14 +28,25 @@ def print_list(head):
 
 class Solution:
     def deleteDuplicate(self,head: Optional[ListNode]) -> Optional[ListNode]:
-     curr = head
+    #  curr = head
 
-     while curr and curr.next:
-        if curr.val == curr.next.val:
-            curr.next = curr.next.next
-        else:
-            curr = curr.next
-     return head
+    #  while curr and curr.next:
+    #     if curr.val == curr.next.val:
+    #         curr.next = curr.next.next
+    #     else:
+    #         curr = curr.next
+    #  return head
+
+       curr = head
+
+       while curr and curr.next:
+           if curr.val == curr.next.val:
+               curr.next = curr.next.next
+           else:
+               curr = curr.next
+
+       return head
+                  
 
 head1 = build_linked_list([1,1,2])
 head2 = build_linked_list([1,1,2,3,3])

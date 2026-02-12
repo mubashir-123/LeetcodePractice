@@ -7,6 +7,27 @@ tokens3 = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 # Space O(n)
 
 def evalRPN(tokens: list[str]) -> int:
+    # stk = []
+
+    # for t in tokens:
+    #     if t in '+-*/':
+    #         b, a = stk.pop(), stk.pop()
+    #         if t == '+':
+    #             stk.append(a + b)
+    #         elif t == '-':
+    #             stk.append(a - b)
+    #         elif t == '*':
+    #             stk.append(a * b)
+    #         else:
+    #             division = a / b
+    #             if division < 0:
+    #                 stk.append(ceil(division))
+    #             else:
+    #                 stk.append(floor(division))
+    #     else:
+    #         stk.append(int(t))
+    # return stk[0]
+
     stk = []
 
     for t in tokens:
@@ -19,7 +40,7 @@ def evalRPN(tokens: list[str]) -> int:
             elif t == '*':
                 stk.append(a * b)
             else:
-                division = a / b
+                division = a/b
                 if division < 0:
                     stk.append(ceil(division))
                 else:

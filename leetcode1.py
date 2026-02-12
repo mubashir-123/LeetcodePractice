@@ -8,8 +8,18 @@ nums3 = [3,3]
 target3 = 6
 
 def twoSum(nums: list[int], target: list[int]):
-    h = {}
+    # h = {}
 
+    # for i in range(len(nums)):
+    #     h[nums[i]] = i
+
+    # for i in range(len(nums)):
+    #     y = target - nums[i]
+
+    #     if y in h and h[y] != i:
+    #        return [i,h[y]]
+
+    h = {}
     for i in range(len(nums)):
         h[nums[i]] = i
 
@@ -17,7 +27,9 @@ def twoSum(nums: list[int], target: list[int]):
         y = target - nums[i]
 
         if y in h and h[y] != i:
-           return [i,h[y]]
-        
+            return [i,h[y]]
+            
 print(twoSum(nums1,target1))
+print(twoSum(nums2,target2))
+print(twoSum(nums3,target3))
 

@@ -9,15 +9,28 @@ target3 = -1
 # space O(1)
 
 def twoSum(numbers: list[int],target: list[int]) -> list[int]:
-    n = len(numbers) 
+    # n = len(numbers) 
+    # l = 0
+    # r = n - 1
+
+    # while l < r:
+    #     sum = numbers[l] + numbers[r]
+    #     if sum == target:
+    #         return [l + 1,r + 1]
+    #     elif sum < target:
+    #         l += 1
+    #     else:
+    #         r -= 1
+
+    n = len(numbers)
     l = 0
     r = n - 1
 
     while l < r:
-        sum = numbers[l] + numbers[r]
-        if sum == target:
+        summ = numbers[l] + numbers[r]
+        if summ == target:
             return [l + 1,r + 1]
-        elif sum < target:
+        elif summ < target:
             l += 1
         else:
             r -= 1

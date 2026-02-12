@@ -26,8 +26,25 @@ height2 = [1,1]
 # print(maxCount(height2))
 
 def maxArea(height: list[int]) -> int:
-    l = 0
+    # l = 0
+    # n = len(height)
+    # r = n - 1
+    # max_count = 0
+
+    # while l < r:
+    #     w = r - l
+    #     h = min(height[l],height[r])
+    #     a = w * h
+    #     max_count = max(max_count,a)
+
+    #     if height[l] < height[r]:
+    #         l += 1
+    #     else:
+    #         r -= 1
+    # return max_count
+    
     n = len(height)
+    l = 0
     r = n - 1
     max_count = 0
 
@@ -35,13 +52,13 @@ def maxArea(height: list[int]) -> int:
         w = r - l
         h = min(height[l],height[r])
         a = w * h
-        max_count = max(max_count,a)
+        max_count = max(a,max_count)
 
         if height[l] < height[r]:
             l += 1
         else:
             r -= 1
     return max_count
-    
+
 print(maxArea(height1))
 print(maxArea(height2))

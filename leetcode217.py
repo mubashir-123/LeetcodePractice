@@ -3,8 +3,16 @@ nums2 = [1,2,3,4]
 nums3 = [1,1,1,3,3,4,3,2,4,2]
 
 def containDuplicate(nums: list[int]) -> bool:
-    h = set()
+    # h = set()
 
+    # for n in nums:
+    #     if n in h:
+    #         return True
+    #     else:
+    #         h.add(n)
+    # return False
+
+    h = set()
     for n in nums:
         if n in h:
             return True

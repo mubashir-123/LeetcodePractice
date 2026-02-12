@@ -49,6 +49,17 @@ class Solution:
         # Floyd's Tortoise and Hare" algorithm
         # Time O(n)
         # Space O(1)
+        
+        # slow = fast = head
+
+        # while fast and fast.next:
+        #     fast = fast.next.next
+        #     slow = slow.next
+
+        #     if slow is fast:
+        #         return True
+        # return False
+
         slow = fast = head
 
         while fast and fast.next:
@@ -57,6 +68,7 @@ class Solution:
 
             if slow is fast:
                 return True
+        
         return False
 
 node = Solution()

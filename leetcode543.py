@@ -38,17 +38,31 @@ def levelOrderTraversal(root):
 class Solution:
     # Time O(n) Space O(h)
     def diameterOfBinaryTree(self,root: Optional[TreeNode]) -> int:
-        max_diameter = [0]
+        # max_diameter = [0]
 
+        # def height(root):
+        #     if not root:
+        #         return 0
+            
+        #     left = height(root.left)
+        #     right = height(root.right)
+        #     max_diameter[0] = max(max_diameter[0],right+left)
+
+        #     return 1 + max(left,right)
+        
+        # height(root)
+        # return max_diameter[0]
+
+        max_diameter = [0]
         def height(root):
             if not root:
                 return 0
             
-            left = height(root.left)
-            right = height(root.right)
-            max_diameter[0] = max(max_diameter[0],right+left)
+            left_height = height(root.left)
+            right_height = height(root.right)
+            max_diameter[0] = max(max_diameter[0] , left_height + right_height)
 
-            return 1 + max(left,right)
+            return 1 + max(left_height,right_height)
         
         height(root)
         return max_diameter[0]

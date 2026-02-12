@@ -29,15 +29,25 @@ def levelOrderTraversal(root):
 class Solution:
     def hasPathSum(self,root: Optional[TreeNode], targetSum: int) -> bool:
         # Time O(n) # Space O(n) 
+        # if not root:
+        #     return False
+        
+        # if not root.left and not root.right:
+        #     return root.val == targetSum
+        
+        # new_target = targetSum - root.val
+        # return (self.hasPathSum(root.left,new_target) or self.hasPathSum(root.right,new_target))
+
         if not root:
-            return False
+            return 0
         
         if not root.left and not root.right:
             return root.val == targetSum
         
         new_target = targetSum - root.val
-        return (self.hasPathSum(root.left,new_target) or self.hasPathSum(root.right,new_target))
     
+        return (self.hasPathSum(root.left,new_target)) or (self.hasPathSum(root.right,new_target))
+              
 sol = Solution()
 
 # Tree1

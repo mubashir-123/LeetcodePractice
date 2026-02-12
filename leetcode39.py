@@ -1,28 +1,45 @@
 class Solution:
     def combinationSum(self,candidates: list[list[int]],target: int) -> list[list[int]]:
         # Time O(n ** t) Space O(n)
-        res, sol = [], []
-        nums = candidates
-        nums.sort()
-        n = len(nums)
+        # res, sol = [], []
+        # nums = candidates
+        # nums.sort()
+        # n = len(nums)
+
+        # def backTrack(i,curr_sum):
+        #     if curr_sum == target:
+        #         res.append(sol[:])
+        #         return
+
+        #     for j in range(i,n):
+        #         if curr_sum + nums[j] > target:
+        #             break
+
+        #         sol.append(nums[j])
+        #         backTrack(j,curr_sum + nums[j])
+        #         sol.pop()
+        
+        # backTrack(0,0)
+        # return res
+
+        ans,sol = [], []
+        candidates.sort()
+        n = len(candidates)
 
         def backTrack(i,curr_sum):
             if curr_sum == target:
-                res.append(sol[:])
-                return
-
+                ans.append(sol[:])
+            
             for j in range(i,n):
-                if curr_sum + nums[j] > target:
+                if curr_sum + candidates[j] > target:
                     break
 
-                sol.append(nums[j])
-                backTrack(j,curr_sum + nums[j])
+                sol.append(candidates[j])
+                backTrack(j,curr_sum + candidates[j])
                 sol.pop()
         
         backTrack(0,0)
-        return res
-
-
+        return ans
 candidates1 = [2,3,6,7]
 target1 = 7
 

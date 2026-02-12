@@ -2,13 +2,21 @@ import heapq
 class Solution:
     def findKthLargest(self, nums: list[int], k: int) -> list[int]:
        # Time O(n logk) space O(k)
-        heap_num = []
-        for num in nums:
-            if len(heap_num) < k:
-               heapq.heappush(heap_num,num)
-            else:
-               heapq.heappushpop(heap_num,num)
-        return heap_num[0]
+      #   heap_num = []
+      #   for num in nums:
+      #       if len(heap_num) < k:
+      #          heapq.heappush(heap_num,num)
+      #       else:
+      #          heapq.heappushpop(heap_num,num)
+      #   return heap_num[0]
+
+      heap_num = []
+      for num in nums:
+         if len(heap_num) < k:
+            heapq.heappush(heap_num,num)
+         else:
+            heapq.heappushpop(heap_num,num)
+      return heap_num[0]
 
 nums1 = [3,2,1,5,6,4]
 k1 = 2

@@ -12,19 +12,34 @@ def isPerfectSquare(num: int) -> bool:
     # return x * x == num
 
     # <---------------- Binary Method ----------------->
+    # l = 0
+    # r = num
+
+    # while l <= r:
+    #     m = l + (r - l) // 2
+    #     m_squared = m * m
+    #     if num == m_squared:
+    #         return True
+    #     elif m_squared < num:
+    #         l = m + 1
+    #     else:
+    #         r = m - 1
+    # return False 
+
     l = 0
-    r = num
+    r = num - 1
 
     while l <= r:
         m = l + (r - l) // 2
-        m_squared = m * m
-        if num == m_squared:
+        m_sqaured = m * m
+
+        if m_sqaured == num:
             return True
-        elif m_squared < num:
+        elif m_sqaured < num:
             l = m + 1
         else:
             r = m - 1
-    return False 
+    return False
 
 print(isPerfectSquare(num1))
 print(isPerfectSquare(num2))

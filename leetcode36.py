@@ -58,7 +58,43 @@ def validateSudoku(board: list[list[str]]) -> bool:
 
     # return True
 
-    # validation of row
+    # # validation of row
+    # for i in range(9):
+    #     s = set()
+    #     for j in range(9):
+    #         item = board[i][j]
+    #         if item in s:
+    #             return False
+    #         elif item not in '.':
+    #             s.add(item)
+    
+    # # validation of col
+    # for i in range(9):
+    #     s = set()
+    #     for j in range(9):
+    #         item = board[j][i]
+    #         if item in s:
+    #             return False
+    #         elif item not in '.':
+    #             s.add(item)
+    
+    # starts = [(0,0),(0,3),(0,6),
+    #           (3,0),(3,3),(3,6),
+    #           (6,0),(6,3),(6,6)]
+    
+    # # validation of box
+    # for i,j in starts:
+    #     s = set()
+    #     for row in range(i,i + 3):
+    #         for col in range(j,j + 3):
+    #             item = board[row][col]
+    #             if item in s:
+    #                 return False
+    #             elif item not in '.':
+    #                 s.add(item)
+    # return True
+
+    # Validate row
     for i in range(9):
         s = set()
         for j in range(9):
@@ -67,8 +103,8 @@ def validateSudoku(board: list[list[str]]) -> bool:
                 return False
             elif item not in '.':
                 s.add(item)
-    
-    # validation of col
+
+    # Validate col
     for i in range(9):
         s = set()
         for j in range(9):
@@ -78,11 +114,11 @@ def validateSudoku(board: list[list[str]]) -> bool:
             elif item not in '.':
                 s.add(item)
     
-    starts = [(0,0),(0,3),(0,6),
-              (3,0),(3,3),(3,6),
+    # Validate box
+    starts = [(0,0),(0,3),(0,6)
+              ,(3,0),(3,3),(3,6),
               (6,0),(6,3),(6,6)]
-    
-    # validation of box
+
     for i,j in starts:
         s = set()
         for row in range(i,i + 3):
@@ -92,6 +128,7 @@ def validateSudoku(board: list[list[str]]) -> bool:
                     return False
                 elif item not in '.':
                     s.add(item)
+    
     return True
             
 print(validateSudoku(board1))                

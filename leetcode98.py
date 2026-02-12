@@ -30,15 +30,25 @@ class Solution:
         return ans
     
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def isValid(node,minn,maxx):
-            if not node:
-                return True
+        # def isValid(node,minn,maxx):
+        #     if not node:
+        #         return True
             
-            if node.val <= minn or node.val >= maxx:
-                return False
+        #     if node.val <= minn or node.val >= maxx:
+        #         return False
             
-            return isValid(node.left,minn,node.val) and isValid(node.right,node.val,maxx)
-        return isValid(root,float('-inf'),float('inf'))
+        #     return isValid(node.left,minn,node.val) and isValid(node.right,node.val,maxx)
+        # return isValid(root,float('-inf'),float('inf'))
+
+          def isValid(node,minn,maxx):
+              if not node:
+                  return True
+
+              if node.val <= minn or node.val >= maxx:
+                  return False
+              
+              return isValid(node.left,minn,node.val) and isValid(node.right,node.val,maxx)
+          return isValid(root,float('-inf'),float('inf'))  
 
 # Tree 1
 node11 = TreeNode(1)

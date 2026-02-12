@@ -38,6 +38,27 @@ def levelOrderTraversal(root):
 class Solution:
     # Time O(n) Space O(n)
     def isBlanaced(self,root: Optional[TreeNode]) -> bool:
+        # balanced = [True]
+
+        # def height(root):
+        #     if not root:
+        #         return 0
+
+        #     left_height = height(root.left)
+            
+        #     if balanced[0] is False:
+        #         return 0
+             
+        #     right_height = height(root.right)
+
+        #     if abs(left_height - right_height) > 1:
+        #         balanced[0] = False
+        #         return 0
+        #     return 1 + max(left_height,right_height)    
+        
+        # height(root)
+        # return balanced[0]
+
         balanced = [True]
 
         def height(root):
@@ -45,17 +66,18 @@ class Solution:
                 return 0
 
             left_height = height(root.left)
-            
+
             if balanced[0] is False:
                 return 0
-             
+
             right_height = height(root.right)
 
             if abs(left_height - right_height) > 1:
                 balanced[0] = False
                 return 0
-            return 1 + max(left_height,right_height)    
-        
+            
+            return 1 + max(left_height,right_height)
+
         height(root)
         return balanced[0]     
 
@@ -68,9 +90,26 @@ node14 = TreeNode(20,left = node11,right = node12)
 
 root1 = TreeNode(3,left = node13,right = node14)
 
+# root2
+node21 = TreeNode(4)
+node22 = TreeNode(4)
+node23 = TreeNode(3,left=node21,right=node22)
+
+node24 = TreeNode(3)
+node25 = TreeNode(2,left=node23,right=node24)
+
+node26 = TreeNode(2)
+root2 = TreeNode(1,left=node25,right=node26)
+
 traversal_result1 = levelOrderTraversal(root1)
 print(f"The Level-Order Traversal array root1: {traversal_result1}")
 
+traversal_result2 = levelOrderTraversal(root2)
+print(f"The Level-Order Traversal array root2: {traversal_result2}")
+
 balancedNode = Solution()
-is_balanced_result = balancedNode.isBlanaced(root1)
-print(f"Is root1 balanced? {is_balanced_result}")
+is_balanced_result1 = balancedNode.isBlanaced(root1)
+print(f"Is root1 balanced? {is_balanced_result1}")
+
+is_balanced_result2 = balancedNode.isBlanaced(root2)
+print(f"Is root1 balanced? {is_balanced_result2}")

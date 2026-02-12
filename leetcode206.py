@@ -27,6 +27,16 @@ def print_list(head):
 
 class Solution:
     def reverseList(self,head: Optional[ListNode]) -> Optional[ListNode]:
+        # curr = head
+        # prev = None
+
+        # while curr:
+        #     temp = curr.next
+        #     curr.next = prev
+        #     prev = curr
+        #     curr = temp
+        # return prev
+
         curr = head
         prev = None
 
@@ -35,7 +45,9 @@ class Solution:
             curr.next = prev
             prev = curr
             curr = temp
+        
         return prev
+
 
 head1 = build_linked_list([1,2,3,4,5])
 head2 = build_linked_list([1,2])

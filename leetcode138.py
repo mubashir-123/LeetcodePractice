@@ -75,26 +75,61 @@ def print_list(head):
 
 class Solution:
     def copyRandomList(self,head: 'Optional[ListNode]' ) -> 'Optional[ListNode]':
-        if not head: return None
 
+        # Time O(n) Space O(n) If use dictionary
+        # if not head: return None
+
+        # curr = head
+        # old_to_new = {}
+
+        # while curr:
+        #     node = ListNode(val = curr.val)
+        #     old_to_new[curr] = node
+        #     curr = curr.next
+
+        # curr = head
+
+        # while curr:
+        #     new_node = old_to_new[curr]
+        #     new_node.next = old_to_new[curr.next] if curr.next else None 
+        #     new_node.random = old_to_new[curr.random] if curr.random else None
+        #     curr = curr.next
+
+        # return old_to_new[head] 
+        
+        # Time O(n) Space O(1) use without dictionary
+        if not head:
+            return None
+        
         curr = head
-        old_to_new = {}
+
+        # Interleave copied nodes
+        while curr:
+            copy = ListNode(curr.val)
+            copy.next = curr.next
+            curr.next = copy
+            curr = copy.next
+        
+        curr = head
+        
+        # Assign random pointers
+        while curr:
+            if curr.random:
+                curr.next.random = curr.random.next
+            curr = curr.next.next
+        
+        # Separate the lists
+        curr = head
+        copy_head = head.next
 
         while curr:
-            node = ListNode(val = curr.val)
-            old_to_new[curr] = node
+            copy = curr.next
+            curr.next = copy.next
+            if copy.next:
+                copy.next = copy.next.next
             curr = curr.next
 
-        curr = head
-
-        while curr:
-            new_node = old_to_new[curr]
-            new_node.next = old_to_new[curr.next] if curr.next else None 
-            new_node.random = old_to_new[curr.random] if curr.random else None
-            curr = curr.next
-
-        return old_to_new[head] 
-
+        return copy_head  
 
 # --- Example Usage (Using the structure from your original image) ---
 # Input: [[7,null], [13,0], [11,4], [10,2], [1,0]]

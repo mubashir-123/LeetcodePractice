@@ -19,7 +19,7 @@ def levelOrderTraversal(root):
     while queue:
         # 1. Dequeue the node at the front (visiting the current node)
         node = queue.popleft()
-        result = result.append(node.val)
+        result.append(node.val)
         
         # 2. Enqueue the left child if it exists
         if node.left:
@@ -34,16 +34,28 @@ def levelOrderTraversal(root):
 class Solution:
     def isSymmetric(self,root: Optional[TreeNode]) -> bool:
         # Time O(n) Space O(n)
+        # def same(root1,root2):
+        #     if not root1 and not root2:
+        #         return True
+        #     if not root1 or not root2:
+        #         return False
+        #     if root1.val != root2.val:
+        #         return False
+        #     return same(root1.left,root2.right) and same(root1.right,root2.left)
+        # return same(root,root)
+          
         def same(root1,root2):
             if not root1 and not root2:
                 return True
+            
             if not root1 or not root2:
                 return False
+            
             if root1.val != root2.val:
                 return False
+            
             return same(root1.left,root2.right) and same(root1.right,root2.left)
         return same(root,root)
-
 # Tree1
 node11 = TreeNode(3)
 node12 = TreeNode(4)

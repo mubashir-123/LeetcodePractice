@@ -5,17 +5,28 @@ s2 = "rat"
 t2 = "car"
 
 def isAnagram(s: str, t:str) -> bool:
+    # s_counter = {}
+    # t_counter = {}
+
+    # if len(s) != len(t):
+    #     return False
+
+    # for s_char, t_char in zip(s,t):
+    #     s_counter[s_char] = s_counter.get(s_char,0) + 1
+    #     t_counter[t_char] = t_counter.get(t_char,0) + 1
+
+    # return s_counter == t_counter
+
     s_counter = {}
     t_counter = {}
 
     if len(s) != len(t):
         return False
 
-    for s_char, t_char in zip(s,t):
-        s_counter[s_char] = s_counter.get(s_char,0) + 1
-        t_counter[t_char] = t_counter.get(t_char,0) + 1
-
-    return s_counter == t_counter    
+    for s_str, t_str in zip(s,t):
+        s_counter[s_str] = s_counter.get(s_str,0) + 1   
+        t_counter[t_str] = t_counter.get(t_str,0) + 1
+    return s_counter == t_counter   
 
 print(isAnagram(s1,t1))
 print(isAnagram(s2,t2))

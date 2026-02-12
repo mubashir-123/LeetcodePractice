@@ -31,20 +31,38 @@ class Solution:
     
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
         # Time O(n) Spcae O(n) (We use Inorder traverse to traverse in sequence in ascending)
-        prev = [None]
+        # prev = [None]
+        # md = [float('inf')]
+
+        # def dfs(node):
+        #     if not node:
+        #         return []
+            
+        #     dfs(node.left)
+
+        #     if prev[0] is not None:
+        #         md[0] = min(md[0],node.val - prev[0])
+            
+        #     prev[0] = node.val
+
+        # dfs(root)
+        # return md[0]
+
         md = [float('inf')]
+        prev = [None]
 
         def dfs(node):
             if not node:
-                return []
+                return 
             
             dfs(node.left)
 
             if prev[0] is not None:
-                md[0] = min(md[0],node.val - prev[0])
-            
-            prev[0] = node.val
+                md[0] = min(md[0], node.val - prev[0])
 
+            prev[0] = node.val
+            
+            dfs(node.right)
         dfs(root)
         return md[0]
 

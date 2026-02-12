@@ -30,24 +30,44 @@ class Solution:
         return ans
 
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        # lca = [root]
+
+        # def search(root):
+        #     if not root:
+        #         return 
+            
+        #     lca[0] = root
+
+        #     if root.val is p or root.val is q:
+        #         return 
+        #     elif root.val < p.val and root.val < q.val:
+        #         return search(root.right)
+        #     elif root.val > p.val and root.val > q.val:
+        #         return search(root.left)
+        #     else:
+        #         return 
+        # search(root)
+        # return lca[0]
+
         lca = [root]
 
         def search(root):
             if not root:
-                return 
+                return
             
             lca[0] = root
 
             if root.val is p or root.val is q:
-                return 
+                return
             elif root.val < p.val and root.val < q.val:
                 return search(root.right)
             elif root.val > p.val and root.val > q.val:
                 return search(root.left)
             else:
-                return 
+                return
         search(root)
         return lca[0]
+
 
 # Tree 1
 node11 = TreeNode(3)
